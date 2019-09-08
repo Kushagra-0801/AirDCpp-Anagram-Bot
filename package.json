@@ -1,0 +1,29 @@
+{
+    "name": "airdcpp-anagram-game-bot",
+    "version": "0.0.1",
+    "description": "Python 3 extension for AirDC++ that plays the Anagram game",
+    "license": "GPLv3",
+    "private": true,
+    "author": "Kushagra-0801",
+    "engines": {
+        "python3": ">=3.5.0"
+    },
+    "keywords": [
+        "airdcpp",
+        "airdcpp-extensions",
+        "anagram",
+        "python",
+        "bot",
+        "game-bot"
+    ],
+    "bugs": "https://github.com/Kushagra-0801/AirDCpp-Anagram-Bot/issues/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Kushagra-0801/AirDCpp-Anagram-Bot/"
+    },
+    "main": "extension.py",
+    "airdcpp": {
+        "apiVersion": 1,
+        "minApiFeatureLevel": 0
+    }
+}
