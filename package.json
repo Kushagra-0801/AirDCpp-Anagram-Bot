@@ -24,6 +24,6 @@
     "main": "extension.py",
     "airdcpp": {
         "apiVersion": 1,
-        "minApiFeatureLevel": 0
+        "minApiFeatureLevel": 2
     }
 }
