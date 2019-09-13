@@ -73,10 +73,12 @@ def get_questions(api_url: str, auth_header: dict, hub_id: int):
             f"http://{api_url}hubs/{hub_id}/messages/5", headers=auth_header
         ).json()
         for message in messages:
-            if message["id"] <= latest_message_id:
+            if "chat_message" not in message:
                 continue
-            latest_message_id = message["id"]
-            match = re.search(QUESTION_REGEX, message["text"])
+            if message["chat_message"]["id"] <= latest_message_id:
+                continue
+            latest_message_id = message["chat_message"]["id"]
+            match = re.search(QUESTION_REGEX, message["chat_message"]["text"])
             if match:
                 letters = match.group("letters")
                 yield letters.lower().replace(" ", "")

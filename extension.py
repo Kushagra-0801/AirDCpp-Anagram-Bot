@@ -15,8 +15,8 @@ parser.add_argument(
 )
 parser.set_defaults(debug=False)
 
-
-WORD_DICT = pickle.load("word_dict.pickle")
+with open("word_dict.pickle", "br") as f:
+    WORD_DICT = pickle.load(f)
 
 
 if __name__ == "__main__":
