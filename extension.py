@@ -2,7 +2,7 @@ import argparse
 from collections import Counter
 import pickle
 import requests
-from helpers import LetterFreq, BASE_DICT, get_anagram_hub_id, get_questions
+from helpers import get_anagram_hub_id, get_questions
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--name", help="Extension name", dest="name")
@@ -24,9 +24,7 @@ if __name__ == "__main__":
     auth_header = {"Authorization": args.auth_token}
     hub_id = get_anagram_hub_id(args.api_url, auth_header)
     for question in get_questions(args.api_url, auth_header, hub_id):
-        word = Counter(question)
-        word.update(BASE_DICT)
-        word = LetterFreq(**word)
+        word = "".join(sorted(question))
         possible_answers = WORD_DICT[word]
         for answer in possible_answers:
             requests.post(
